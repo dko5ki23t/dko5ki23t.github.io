@@ -1,63 +1,104 @@
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Github, ExternalLink, Mail, Linkedin, Twitter, BookOpen, PenTool } from "lucide-react"
-import Image from "next/image"
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+  Github,
+  ExternalLink,
+  Mail,
+  Twitter,
+  BookOpen,
+  PenTool,
+} from "lucide-react";
+import Image from "next/image";
 
 export default function Portfolio() {
   const apps = [
     {
       id: 1,
-      title: "タスク管理アプリ",
-      description: "チーム向けのタスク管理とプロジェクト追跡ができるWebアプリケーション",
+      title: "株価予測ソフト",
+      description: "過去の株価を取得し、将来の株の値動きを予測するソフト",
       image: "/placeholder.svg?height=200&width=300",
-      technologies: ["React", "Node.js", "MongoDB", "Socket.io"],
+      technologies: ["Python", "TensorFlow", "CUDA", "AWS", "J-Quants API"],
       features: [
-        "リアルタイム通知機能の実装",
-        "ドラッグ&ドロップによる直感的なUI",
-        "レスポンシブデザインでモバイル対応",
+        "J-Quants APIを使って株価データを取得",
+        "AWSのEC2インスタンスを借りて高負荷処理を実行（使用断念）",
+        "学習モデルのパラメータを調整して精度向上を目論むが期待通りの成果得られず。。",
       ],
-      githubUrl: "https://github.com/username/task-app",
-      liveUrl: "https://task-app-demo.com",
+      githubUrl: "https://github.com/dko5ki23t/investment_support_with_ai",
     },
     {
       id: 2,
-      title: "天気予報アプリ",
-      description: "位置情報を活用した詳細な天気予報と気象データの可視化アプリ",
-      image: "/placeholder.svg?height=200&width=300",
-      technologies: ["Vue.js", "TypeScript", "Chart.js", "OpenWeather API"],
-      features: ["位置情報APIとの連携", "Chart.jsを使った気象データの可視化", "PWA対応でオフライン機能を実装"],
-      githubUrl: "https://github.com/username/weather-app",
-      liveUrl: "https://weather-app-demo.com",
+      title: "ポケレコ",
+      description: "育成したポケモンや対戦記録を管理するAndroid向けアプリ",
+      image: "/poke_reco_icon.png?height=200&width=300",
+      technologies: ["Flutter", "Dart", "Python", "PokeAPI"],
+      features: [
+        "対戦記録から相手ポケモンのパラメータを計算",
+        "見やすい・使いやすいUIを追求",
+        "アプリの操作を自動で行うテストを作成",
+      ],
+      githubUrl: "https://github.com/dko5ki23t/poke_match_record_app",
     },
     {
       id: 3,
-      title: "家計簿アプリ",
-      description: "支出管理と予算設定ができるパーソナルファイナンス管理アプリ",
-      image: "/placeholder.svg?height=200&width=300",
-      technologies: ["Next.js", "Prisma", "PostgreSQL", "Tailwind CSS"],
-      features: ["カテゴリ別支出分析機能", "予算アラート機能の実装", "データエクスポート機能（CSV/PDF）"],
-      githubUrl: "https://github.com/username/budget-app",
-      liveUrl: "https://budget-app-demo.com",
+      title: "押しごと",
+      description: "箱押し＋マージゲームのAndroid/iOS向けアプリ",
+      image: "/oshigoto_icon.png?height=200&width=300",
+      technologies: ["Flutter", "Flame", "Dart", "Python"],
+      features: [
+        "チュートリアルの実装",
+        "毎フレームでnewを極限まで減らして高速化",
+        "アプリバージョン変更に応じて自動でGitのタグ打ち",
+        "テスターの意見を参考に難易度調整やUI調整を実施",
+      ],
+      githubUrl: "https://github.com/dko5ki23t/box_pusher",
+      liveUrl: "https://shimarinapps.com/apps/oshigoto/",
     },
-  ]
+    {
+      id: 4,
+      title: "ピンシェア",
+      description: "URL共有で簡単に共同して地図を編集できるWebサービス",
+      image: "/pinshare_icon.svg?height=200&width=300",
+      technologies: [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "v0",
+        "Places API",
+        "Firebase",
+        "Firestore",
+      ],
+      features: [
+        "v0を使って開発工数を大幅削減",
+        "最新のPlaces APIに対応",
+        "共同編集者による更新をリアルタイムで地図に反映",
+      ],
+      liveUrl: "https://v0-pin-share-service.vercel.app/",
+    },
+  ];
 
   const skills = [
-    "JavaScript",
+    "C",
+    "C++",
+    "Python",
+    "Dart",
     "TypeScript",
+    "Flutter",
+    "Flame",
     "React",
     "Next.js",
-    "Vue.js",
-    "Node.js",
-    "Express",
-    "MongoDB",
-    "PostgreSQL",
-    "Prisma",
-    "Tailwind CSS",
     "Git",
+    "Firebase",
+    "Firestore",
     "Docker",
     "AWS",
-  ]
+  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -70,19 +111,34 @@ export default function Portfolio() {
             </a>
           </div>
           <nav className="flex items-center space-x-6 text-sm font-medium">
-            <a href="#about" className="transition-colors hover:text-foreground/80">
+            <a
+              href="#about"
+              className="transition-colors hover:text-foreground/80"
+            >
               About
             </a>
-            <a href="#projects" className="transition-colors hover:text-foreground/80">
-              Projects
+            <a
+              href="#projects"
+              className="transition-colors hover:text-foreground/80"
+            >
+              Works
             </a>
-            <a href="#skills" className="transition-colors hover:text-foreground/80">
+            <a
+              href="#skills"
+              className="transition-colors hover:text-foreground/80"
+            >
               Skills
             </a>
-            <a href="#blog" className="transition-colors hover:text-foreground/80">
-              Blog
+            <a
+              href="#blog"
+              className="transition-colors hover:text-foreground/80"
+            >
+              Articles
             </a>
-            <a href="#contact" className="transition-colors hover:text-foreground/80">
+            <a
+              href="#contact"
+              className="transition-colors hover:text-foreground/80"
+            >
               Contact
             </a>
           </nav>
@@ -94,45 +150,54 @@ export default function Portfolio() {
         <div className="container mx-auto text-center">
           <div className="mb-8">
             <Image
-              src="/placeholder.svg?height=150&width=150"
+              src="/profile_icon.png?height=150&width=150"
               alt="プロフィール画像"
               width={150}
               height={150}
               className="rounded-full mx-auto mb-6"
             />
           </div>
-          <h1 className="text-4xl font-bold mb-4">山田 太郎</h1>
+          <h1 className="text-4xl font-bold mb-4">Koki Inoue</h1>
           <p className="text-xl text-muted-foreground mb-6 max-w-2xl mx-auto">
-            フルスタックエンジニアとして、ユーザー体験を重視したWebアプリケーションの開発に取り組んでいます。
-            新しい技術への挑戦と、実用的なソリューションの提供を心がけています。
+            組み込みエンジニアだったり個人開発者だったり
           </p>
           <div className="flex justify-center space-x-4 flex-wrap gap-2">
             <Button variant="outline" size="sm" asChild>
-              <a href="https://github.com/username" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://github.com/dko5ki23t/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Github className="mr-2 h-4 w-4" />
                 GitHub
               </a>
             </Button>
             <Button variant="outline" size="sm" asChild>
-              <a href="https://zenn.dev/username" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://zenn.dev/dko5ki23t"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <BookOpen className="mr-2 h-4 w-4" />
                 Zenn
               </a>
             </Button>
             <Button variant="outline" size="sm" asChild>
-              <a href="https://note.com/username" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://note.com/vivid_donkey6414"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <PenTool className="mr-2 h-4 w-4" />
-                Note
+                note
               </a>
             </Button>
             <Button variant="outline" size="sm" asChild>
-              <a href="https://linkedin.com/in/username" target="_blank" rel="noopener noreferrer">
-                <Linkedin className="mr-2 h-4 w-4" />
-                LinkedIn
-              </a>
-            </Button>
-            <Button variant="outline" size="sm" asChild>
-              <a href="https://twitter.com/username" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://x.com/god_koki_apps"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Twitter className="mr-2 h-4 w-4" />
                 Twitter
               </a>
@@ -144,27 +209,47 @@ export default function Portfolio() {
       {/* Projects Section */}
       <section id="projects" className="py-20 px-4 bg-muted/50">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">プロジェクト</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">Works</h2>
+          <p className="text-lg text-muted-foreground mb-8 text-center max-w-2xl mx-auto">
+            苦労して作った個人製作物たち
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {apps.map((app) => (
+            {apps.reverse().map((app) => (
               <Card key={app.id} className="overflow-hidden">
                 <div className="aspect-video relative">
-                  <Image src={app.image || "/placeholder.svg"} alt={app.title} fill className="object-cover" />
+                  <Image
+                    src={app.image || "/placeholder.svg"}
+                    alt={app.title}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
                 <CardHeader>
                   <CardTitle className="flex items-center justify-between">
                     {app.title}
                     <div className="flex space-x-2">
-                      <Button variant="ghost" size="sm" asChild>
-                        <a href={app.githubUrl} target="_blank" rel="noopener noreferrer">
-                          <Github className="h-4 w-4" />
-                        </a>
-                      </Button>
-                      <Button variant="ghost" size="sm" asChild>
-                        <a href={app.liveUrl} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="h-4 w-4" />
-                        </a>
-                      </Button>
+                      {app.githubUrl && (
+                        <Button variant="ghost" size="sm" asChild>
+                          <a
+                            href={app.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <Github className="h-4 w-4" />
+                          </a>
+                        </Button>
+                      )}
+                      {app.liveUrl && (
+                        <Button variant="ghost" size="sm" asChild>
+                          <a
+                            href={app.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <ExternalLink className="h-4 w-4" />
+                          </a>
+                        </Button>
+                      )}
                     </div>
                   </CardTitle>
                   <CardDescription>{app.description}</CardDescription>
@@ -182,7 +267,7 @@ export default function Portfolio() {
                       </div>
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-2">工夫した点</h4>
+                      <h4 className="font-semibold mb-2">ポイント</h4>
                       <ul className="text-sm text-muted-foreground space-y-1">
                         {app.features.map((feature, index) => (
                           <li key={index} className="flex items-start">
@@ -203,11 +288,15 @@ export default function Portfolio() {
       {/* Skills Section */}
       <section id="skills" className="py-20 px-4">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">スキル</h2>
+          <h2 className="text-3xl font-bold text-center mb-12">Skills</h2>
           <div className="max-w-4xl mx-auto">
             <div className="flex flex-wrap justify-center gap-3">
               {skills.map((skill) => (
-                <Badge key={skill} variant="outline" className="text-sm py-2 px-4">
+                <Badge
+                  key={skill}
+                  variant="outline"
+                  className="text-sm py-2 px-4"
+                >
                   {skill}
                 </Badge>
               ))}
@@ -219,27 +308,37 @@ export default function Portfolio() {
       {/* Blog Section */}
       <section id="blog" className="py-20 px-4 bg-muted/50">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-8">技術ブログ</h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            技術記事や学習記録を定期的に投稿しています。
-          </p>
+          <h2 className="text-3xl font-bold mb-8">Articles</h2>
+          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto"></p>
           <div className="flex justify-center space-x-6">
             <Card className="p-6 max-w-sm">
               <BookOpen className="h-12 w-12 mx-auto mb-4 text-primary" />
               <h3 className="text-xl font-semibold mb-2">Zenn</h3>
-              <p className="text-muted-foreground mb-4">技術記事やチュートリアルを投稿</p>
+              <p className="text-muted-foreground mb-4">
+                技術記事を投稿。まだどこにも書かれてないようなことを書いている。
+              </p>
               <Button variant="outline" asChild>
-                <a href="https://zenn.dev/username" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://zenn.dev/username"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   記事を読む
                 </a>
               </Button>
             </Card>
             <Card className="p-6 max-w-sm">
               <PenTool className="h-12 w-12 mx-auto mb-4 text-primary" />
-              <h3 className="text-xl font-semibold mb-2">Note</h3>
-              <p className="text-muted-foreground mb-4">開発日記や学習記録を共有</p>
+              <h3 className="text-xl font-semibold mb-2">note</h3>
+              <p className="text-muted-foreground mb-4">
+                気軽に投稿している記事。大したことじゃなくても書いている。
+              </p>
               <Button variant="outline" asChild>
-                <a href="https://note.com/username" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://note.com/username"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   記事を読む
                 </a>
               </Button>
@@ -251,23 +350,22 @@ export default function Portfolio() {
       {/* Contact Section */}
       <section id="contact" className="py-20 px-4 bg-muted/50">
         <div className="container mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-8">お問い合わせ</h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            プロジェクトのご相談や採用に関するお問い合わせは、お気軽にご連絡ください。
-          </p>
-          <Button size="lg">
-            <Mail className="mr-2 h-5 w-5" />
-            メールを送る
-          </Button>
+          <h2 className="text-3xl font-bold mb-8">Contact</h2>
+          <a href="mailto:dwo5rk23t@gmail.com?subject=お問い合わせ">
+            <Button size="lg">
+              <Mail className="mr-2 h-5 w-5" />
+              メールを送る
+            </Button>
+          </a>
         </div>
       </section>
 
       {/* Footer */}
       <footer className="py-8 px-4 border-t">
         <div className="container mx-auto text-center text-muted-foreground">
-          <p>&copy; 2024 山田 太郎. All rights reserved.</p>
+          <p>&copy; 2025 Koki Inoue All rights reserved.</p>
         </div>
       </footer>
     </div>
-  )
+  );
 }
